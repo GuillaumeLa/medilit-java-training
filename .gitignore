@@ -1,0 +1,28 @@
+# === Build output ===
+target/
+bin/
+
+# === Eclipse ===
+.classpath
+.project
+.settings/
+.metadata/
+.factorypath
+
+# === IntelliJ ===
+.idea/
+*.iml
+
+# === VS Code ===
+.vscode/
+
+# === Maven wrapper (on garde la config, pas le jar téléchargé) ===
+.mvn/wrapper/maven-wrapper.jar
+
+# === Compilés / logs ===
+*.class
+*.log
+
+# === Système ===
+.DS_Store
+Thumbs.db
