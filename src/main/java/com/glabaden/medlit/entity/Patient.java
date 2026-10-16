@@ -13,6 +13,15 @@ public class Patient {
 	// Constructeur 
 	public Patient(String ipp, String name, String firstName, LocalDate birthDate)
 	{
+		if(ipp == null || ipp.isBlank() )
+			throw new IllegalArgumentException("Invalid Ipp empty.");
+		if(name == null || name.isBlank() )
+			throw new IllegalArgumentException("Invalid Name empty.");
+		if(firstName == null || firstName.isBlank() )
+			throw new IllegalArgumentException("Invalid FirstName empty.");
+		if(birthDate == null || birthDate.isAfter(LocalDate.now()) )
+			throw new IllegalArgumentException("Invalid BirthDate empty or in the future.");
+		
 		this.ipp = ipp;
 		this.name = name;
 		this.firstName = firstName;
@@ -31,7 +40,7 @@ public class Patient {
 	{
 		return firstName;
 	}
-	public Date getBirthDate()
+	public LocalDate getBirthDate()
 	{
 		return birthDate;
 	}
