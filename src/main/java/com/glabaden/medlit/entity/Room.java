@@ -1,5 +1,6 @@
 package com.glabaden.medlit.entity;
 
+import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,6 +31,9 @@ public class Room {
 		}
 	}
 	
+	public List<Bed> getAllBeds() {
+		return List.copyOf(beds.values());
+	}
 	
 	public String getRoomNumber()
 	{
