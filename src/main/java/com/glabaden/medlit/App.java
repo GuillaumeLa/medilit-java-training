@@ -37,8 +37,6 @@ public class App {
 			
 		} catch (AlreadyUsedNameException e) {
 			System.out.println("Service name already Used");
-		} catch (NoSuchElementException e) {
-			System.out.println("Any Optionnal so getFunctionFailed");
 		} catch (RoomNumberAlreadyUsedException e) {
 			System.out.println("Room number already Used");
 		} catch (DepartmentNotFoundException e) {

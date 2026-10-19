@@ -10,7 +10,7 @@ public class RoomTest {
 
 	@Test
 	@DisplayName("1. Given une chambre double, When elle est créée, Then elle contient exactement 2 lit.")
-	void doubleRoomHasOneBed() {
+	void doubleRoomHasTwoBed() {
 		Room newRoom = new Room("R-001", RoomType.DOUBLE);
 		assertEquals(2, newRoom.getAllBeds().size());
 	}
