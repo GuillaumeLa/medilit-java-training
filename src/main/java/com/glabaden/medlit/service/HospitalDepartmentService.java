@@ -2,6 +2,7 @@ package com.glabaden.medlit.service;
 
 import com.glabaden.medlit.entity.HospitalDepartment;
 import com.glabaden.medlit.exception.AlreadyUsedNameException;
+import com.glabaden.medlit.exception.DepartmentNotFoundException;
 import com.glabaden.medlit.repository.HospitalDepartmentRepository;
 
 public class HospitalDepartmentService {
@@ -15,5 +16,9 @@ public class HospitalDepartmentService {
 			throw new AlreadyUsedNameException();
 		}
 		departmentRepository.saveHospitalDepartment(newDepartmentService);
+	}
+	public HospitalDepartment getDepartmentByName(String name) throws DepartmentNotFoundException {
+		return departmentRepository.getHospitalDepartmentByName(name).orElseThrow(DepartmentNotFoundException::new);
+		
 	}
 }

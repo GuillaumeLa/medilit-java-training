@@ -6,6 +6,7 @@ import com.glabaden.medlit.entity.HospitalDepartment;
 import com.glabaden.medlit.entity.Room;
 import com.glabaden.medlit.entity.RoomType;
 import com.glabaden.medlit.exception.AlreadyUsedNameException;
+import com.glabaden.medlit.exception.DepartmentNotFoundException;
 import com.glabaden.medlit.exception.RoomNumberAlreadyUsedException;
 import com.glabaden.medlit.repository.HospitalDepartmentRepository;
 import com.glabaden.medlit.service.HospitalDepartmentService;
@@ -26,7 +27,7 @@ public class App {
 			app.registerDepartmentService(emergencyDepartment);
 			app.registerDepartmentService(cardiologieDepartment);
 			
-		 	HospitalDepartment cardiOptional = departmentsRepository.getHospitalDepartmentByName("Emergency").get();
+		 	HospitalDepartment cardiOptional = app.getDepartmentByName("Cardiologie");
 		 	cardiOptional.saveRoom(new Room("R-001", RoomType.DOUBLE));
 		 	List<Room> rooms = cardiOptional.getAllRooms();	
 		 	Room room_one = rooms.get(0);
@@ -40,6 +41,8 @@ public class App {
 			System.out.println("Any Optionnal so getFunctionFailed");
 		} catch (RoomNumberAlreadyUsedException e) {
 			System.out.println("Room number already Used");
+		} catch (DepartmentNotFoundException e) {
+			System.out.println("Department hasn't been found.");
 		}
 		
 

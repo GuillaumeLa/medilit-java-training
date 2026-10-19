@@ -32,7 +32,7 @@ public class PatientTest {
 	@DisplayName("US-01 : un prenom null est invalide")
 	void refuseNullFirstName() {
         assertThrows(IllegalArgumentException.class,
-            () -> new Patient("P-0001", "LA", "", LocalDate.of(1990, 5, 12)));
+            () -> new Patient("P-0001", "LA", null, LocalDate.of(1990, 5, 12)));
 	}
 	@Test	
 	@DisplayName("US-01: la date de naissance dans le futur est invalide.")
