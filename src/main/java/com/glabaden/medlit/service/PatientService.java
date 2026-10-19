@@ -1,5 +1,7 @@
 package com.glabaden.medlit.service;
 
+import java.util.Optional;
+
 import com.glabaden.medlit.entity.Patient;
 import com.glabaden.medlit.exception.AlreadyUsedIppException;
 import com.glabaden.medlit.repository.PatientRepository;
@@ -16,7 +18,10 @@ public class PatientService {
             throw new AlreadyUsedIppException();
         }
         patientRepository.save(patient);
-        System.out.println(patient.getName() + " ajoute.");
+    }
+    public Optional<Patient> getPatientByIpp(String ippString){
+    	return patientRepository.findPatientByIpp(ippString);
+    	
     }
     
 }
